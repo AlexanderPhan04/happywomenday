@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Pacifico&display=swap");
+
+:root {
+  --bg1: #ffd7e8;
+  --bg2: #f6e7ff;
+  --card: rgba(255, 255, 255, 0.85);
+  --accent: #ff6fa3;
+  --accent-2: #a88cff;
+  --text: #3b2b2b;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#petals {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  overflow: hidden;
+}
+.scene {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+}
+.header {
+  text-align: center;
+  margin-top: 10vh;
+}
+.title {
+  font-family: "Pacifico", cursive;
+  font-size: 3.2rem;
+  margin: 0;
+  color: var(--accent-2);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+.subtitle {
+  margin-top: 8px;
+  color: #6b4f5a;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(72, 35, 84, 0.08);
+  max-width: 760px;
+  width: 100%;
+}
+.wishes-card {
+  backdrop-filter: blur(6px);
+}
+.wish-rotator {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.wish {
+  font-size: 1.25rem;
+  margin: 10px 0;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.65),
+    rgba(255, 255, 255, 0.45)
+  );
+  border-left: 6px solid var(--accent);
+}
+.controls {
+  display: flex;
+  gap: 10px;
+}
+.btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 0;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(140, 96, 130, 0.08);
+}
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: white;
+  font-weight: 700;
+}
+
+.footer {
+  opacity: 0.9;
+  color: #62384e;
+}
+
+/* petals */
+#petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.petal {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fff6ff 0%,
+    #ffdfe9 30%,
+    #ff9fc6 100%
+  );
+  opacity: 0.9;
+  border-radius: 50% 50% 50% 10%;
+  transform: rotate(20deg);
+}
+
+/* animation helpers */
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.95;
+  }
+}
+
+/* responsive */
+@media (min-width: 700px) {
+  .title {
+    font-size: 4.4rem;
+  }
+  .scene {
+    padding: 60px;
+  }
+}
+
+/* cute sparkle around title */
+.title::after {
+  content: "";
+  display: block;
+  margin: 10px auto;
+  height: 6px;
+  width: 160px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 6px;
+  opacity: 0.9;
+}
+
+/* small accessibility helpers */
+.btn:focus {
+  outline: 3px solid rgba(168, 140, 255, 0.25);
+}
+.wish {
+  transition: transform 360ms ease, opacity 360ms;
+}
+.wish.fade-out {
+  opacity: 0;
+  transform: translateX(-8px);
+}
+.wish.fade-in {
+  opacity: 1;
+  transform: translateX(0);
+}

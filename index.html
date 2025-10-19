@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chúc mừng Ngày Phụ nữ Việt Nam 20/10</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="scene">
+      <header class="header">
+        <h1 class="title">Chúc mừng<br />Ngày Phụ nữ Việt Nam 20/10</h1>
+        <p class="subtitle">
+          Gửi lời yêu thương đến những người phụ nữ quan trọng trong đời bạn ❤️
+        </p>
+      </header>
+
+      <main class="content">
+        <section class="card wishes-card">
+          <div class="wish-rotator">
+            <blockquote id="randomWish" class="wish">
+              Chúc bạn luôn xinh đẹp, mạnh khỏe và hạnh phúc!
+            </blockquote>
+            <div class="controls">
+              <button id="newWishBtn" class="btn">Lời chúc khác</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <small>Made with love 💐</small>
+      </footer>
+
+      <!-- petals container -->
+      <div id="petals"></div>
+
+      <!-- modal -->
+      <div id="wishModal" class="modal hidden">
+        <div class="modal-content">
+          <h2>Gửi lời chúc</h2>
+          <textarea
+            id="wishInput"
+            placeholder="Viết lời chúc của bạn..."
+            maxlength="250"
+          ></textarea>
+          <div class="modal-actions">
+            <button id="sendWishBtn" class="btn primary">Gửi</button>
+            <button id="closeModalBtn" class="btn">Hủy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
